@@ -1,27 +1,37 @@
+.controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 .matrix {
-    display: flex;
-    flex-direction: column;
-    max-width: fit-content;
-    margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.matrix-row {
+  display: flex;
+  gap: 8px;
+}
+
+.matrix-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
   }
-  
-  .matrix-row {
-    display: flex;
-  }
-  
-  .matrix-cell {
-    padding: 8px;
-    margin: 4px;
-    background-color: lightgray;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 4px;
-    width: 50px;
-    text-align: center;
-  }
-  
-  .matrix-cell.selected {
-    background-color: steelblue;
+
+  &.selected {
+    background-color: #3f51b5;
     color: white;
   }
-  
+}

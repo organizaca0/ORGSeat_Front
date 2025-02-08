@@ -1,18 +1,27 @@
-<div>
-    <label>Rows: <input type="number" [(ngModel)]="rowsInput" /></label>
-    <label>Columns: <input type="number" [(ngModel)]="columnsInput" /></label>
-    <button (click)="generateMatrix()">Generate Matrix</button>
+<div class="controls">
+  <mat-form-field appearance="fill">
+    <mat-label>Rows</mat-label>
+    <input matInput type="number" [(ngModel)]="rowsInput" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Columns</mat-label>
+    <input matInput type="number" [(ngModel)]="columnsInput" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="generateMatrix()">
+    Generate Matrix
+  </button>
+</div>
+
+<div class="matrix">
+  <div *ngFor="let row of matrix; let rowIndex = index" class="matrix-row">
+    <span
+      *ngFor="let col of row; let colIndex = index"
+      class="matrix-cell"
+      [class.selected]="isSelected(rowIndex, colIndex)"
+      (click)="togglePositionSelection(rowIndex, colIndex)">
+      {{ rowIndex + 1 }},{{ colIndex + 1 }}
+    </span>
   </div>
-  
-  <div class="matrix">
-    <div *ngFor="let row of matrix; let rowIndex = index" class="matrix-row">
-      <span
-        *ngFor="let col of row; let colIndex = index"
-        class="matrix-cell"
-        [class.selected]="isSelected(rowIndex, colIndex)"
-        (click)="togglePositionSelection(rowIndex, colIndex)">
-        {{ rowIndex + 1 }},{{ colIndex + 1 }}
-      </span>
-    </div>
-  </div>
-  
+</div>

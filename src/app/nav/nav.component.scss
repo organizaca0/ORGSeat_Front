@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  width: 14vw;
+  background-color: #118f7a;
+  height: 100vh;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 70%;
+    border-radius: 12px;
+    align-items: center;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Added transition */
+  }
+  
+  .nav-item:hover {
+    color: var(--dsr-text-1);
+    background-color: #54bead;
+    cursor: pointer;
+    --ds-focus-ring-border-radius: 14px;
+  }
+  

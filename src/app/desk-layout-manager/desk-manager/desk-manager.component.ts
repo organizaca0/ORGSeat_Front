@@ -4,17 +4,21 @@ import { CommonModule } from '@angular/common'; // Use CommonModule instead of B
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatMenuModule } from '@angular/material/menu'; // Import MatMenuModule
+import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
 
 @Component({
   selector: 'desk-manager',
   standalone: true, // Mark the component as standalone
   templateUrl: './desk-manager.component.html',
-  styleUrl: './desk-manager.component.scss',
+  styleUrls: ['./desk-manager.component.scss'],
   imports: [
-    CommonModule, // Use CommonModule for common directives
+    CommonModule,
     MatTableModule,
-    MatPaginatorModule, 
-    MatSortModule 
+    MatPaginatorModule,
+    MatSortModule,
+    MatMenuModule,
+    MatIconModule,
   ],
 })
 export class DeskManagerComponent {
@@ -25,5 +29,6 @@ export class DeskManagerComponent {
     { id: 4, descricao: 'Projeto Delta', membros: ['Grace', 'Heidi'], lm: 'Grace' },
     { id: 5, descricao: 'Projeto Epsilon', membros: ['Ivan', 'Judy'], lm: 'Ivan' },
   ];
-  displayedColumns: string[] = ['id', 'descricao', 'membros', 'lm']; 
+
+  displayedColumns: string[] = ['id', 'descricao', 'membros', 'lm', 'action']; // Added 'action' to the displayed columns
 }
