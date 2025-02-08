@@ -15,13 +15,32 @@
 </div>
 
 <div class="matrix">
+  <!-- Column headers -->
+  <div class="matrix-header">
+    <button *ngFor="let col of matrix[0]; let colIndex = index"
+      mat-icon-button (click)="addColumnLeft(colIndex)">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <!-- Matrix rows -->
   <div *ngFor="let row of matrix; let rowIndex = index" class="matrix-row">
-    <span
-      *ngFor="let col of row; let colIndex = index"
+    <span *ngFor="let col of row; let colIndex = index"
       class="matrix-cell"
       [class.selected]="isSelected(rowIndex, colIndex)"
       (click)="togglePositionSelection(rowIndex, colIndex)">
-      {{ rowIndex + 1 }},{{ colIndex + 1 }}
+      {{ col }} <!-- Display the actual value of the cell (string or number) -->
     </span>
+  
+    <!-- Add a "+" button to each row -->
+    <button mat-icon-button (click)="addRowBelow(rowIndex)">
+      <mat-icon>add</mat-icon>
+    </button>
+  
+    <!-- Display "-" button only for rows filled with dashes -->
+    <button mat-icon-button *ngIf="isDashRow(row)" (click)="removeRow(rowIndex)">
+      <mat-icon>remove</mat-icon>
+    </button>
   </div>
+  
 </div>

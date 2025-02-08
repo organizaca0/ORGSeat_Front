@@ -35,3 +35,11 @@
     color: white;
   }
 }
+
+.add-column-btn {
+  width: 50px; /* Match this to the width of the matrix cells */
+  text-align: center;
+  padding: 10px;
+  background-color: transparent; /* to avoid any visual inconsistencies */
+  border: none;
+}
