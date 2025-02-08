@@ -1,0 +1,27 @@
+.matrix {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin-top: 16px;
+  }
+  
+  .matrix-row {
+    display: flex;
+  }
+  
+  .matrix-cell {
+    padding: 8px;
+    margin: 4px;
+    background-color: lightgray;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    width: 50px;
+    text-align: center;
+  }
+  
+  .matrix-cell.selected {
+    background-color: steelblue;
+    color: white;
+  }
+  
