@@ -22,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule
   ],
 })
 export class DeskManagerComponent {
-  mockData: DeskTable[] = [
+  groups: DeskTable[] = [
     { id: 1, descricao: 'Projeto Alpha', membros: ['Alice', 'Bob'], lm: 'Alice' },
     { id: 2, descricao: 'Projeto Beta', membros: ['Charlie', 'David'], lm: 'Charlie' },
     { id: 3, descricao: 'Projeto Gamma', membros: ['Eve', 'Frank'], lm: 'Eve' },

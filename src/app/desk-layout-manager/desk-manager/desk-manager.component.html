@@ -1,56 +1,64 @@
-<div class="mat-elevation-z8 table-width">
-    <table mat-table [dataSource]="mockData" class="mat-elevation-z8">
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
-      </ng-container>
-  
-      <!-- Descrição Column -->
-      <ng-container matColumnDef="descricao">
-        <th mat-header-cell *matHeaderCellDef> Descrição </th>
-        <td mat-cell *matCellDef="let element"> {{ element.descricao }} </td>
-      </ng-container>
-  
-      <!-- Membros Column -->
-      <ng-container matColumnDef="membros">
-        <th mat-header-cell *matHeaderCellDef> Membros </th>
-        <td mat-cell *matCellDef="let element"> {{ element.membros.join(', ') }} </td>
-      </ng-container>
-  
-      <!-- LM Column -->
-      <ng-container matColumnDef="lm">
-        <th mat-header-cell *matHeaderCellDef> LM </th>
-        <td mat-cell *matCellDef="let element"> {{ element.lm }} </td>
-      </ng-container>
-  
-      <!-- Action Column -->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>dialpad</mat-icon>
-              <span>Redial</span>
-            </button>
-            <button mat-menu-item disabled>
-              <mat-icon>voicemail</mat-icon>
-              <span>Check voice mail</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>notifications_off</mat-icon>
-              <span>Disable alerts</span>
-            </button>
-          </mat-menu>
-        </td>
-      </ng-container>
-  
-      <!-- Header and Row Definitions -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+<div class="d-center-row">
+  <div class="table-col d-center">
+    <h3>ID</h3>
   </div>
-  
+  <div class="table-col d-center">
+    <h3>Descrição</h3>
+  </div>
+  <div class="table-col d-center">
+    <h3>Membros</h3>
+  </div>
+  <div class="table-col d-center">
+    <h3>LM</h3>
+  </div>
+  <div class="table-col d-center">
+    <h3>Ações</h3>
+  </div>
+</div>
+<div class="d-flex-col" *ngFor="let group of groups">
+  <div class="d-center-row">
+    <div class="table-col d-center">
+      <p>
+        {{ group.id }}
+      </p>
+    </div>
+    <div class="table-col d-center">
+      <p>
+        {{ group.descricao }}
+      </p>
+    </div>
+    <div class="table-col d-center">
+      <p>
+        {{ group.membros }}
+      </p>
+    </div>
+    <div class="table-col d-center">
+      <p>
+        {{ group.lm }}
+      </p>
+    </div>
+    <div class="table-col d-center">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <span>Editar grupo</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,131 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.d-flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.d-flex-col {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 85vw;
+  height: 100vh;
+}
+
+.d-center {
+  display: flex;
+  justify-content: center;
+}
+
+.d-center-cl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.d-center-cl-fstart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.d-row-spc-around {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.d-row-spc-between {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.d-center-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.d-center-bl {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: row;
+  width: 100%;
+}
+
+.d-center-fstart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.d-center-100 {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.d-center-grid {
+  display: grid;
+  justify-content: center;
+}
+
+.d-flstart-base {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: row;
+  width: 100%;
+}
+
+.d-flstart-column {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+}
+
+.clean-conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1c1c1c;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px 5px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.separator {
+  margin: 2rem;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
