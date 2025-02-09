@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon'; // Import the MatIconModule
+import { MatIconModule } from '@angular/material/icon'; 
 
 @Component({
   selector: 'desk-editor',
-  standalone: true, // Mark the component as standalone
+  standalone: true, 
   templateUrl: './desk-editor.component.html',
   styleUrls: ['./desk-editor.component.scss'],
   imports: [
@@ -17,13 +17,13 @@ import { MatIconModule } from '@angular/material/icon'; // Import the MatIconMod
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatIconModule, // Add MatIconModule to the imports
+    MatIconModule, 
   ],
 })
 export class DeskEditorComponent {
   rowsInput: number = 0;
   columnsInput: number = 0;
-  matrix: (number | string)[][] = []; // Allow both numbers and strings in the matrix
+  matrix: (number | string)[][] = []; 
   selectedPositions: { row: number, col: number }[] = [];
 
   generateMatrix() {
@@ -34,7 +34,6 @@ export class DeskEditorComponent {
   }
 
   togglePositionSelection(row: number, col: number) {
-    // If the cell is "-", we don't toggle, it's always considered selected
     if (this.matrix[row][col] === '-') {
       return;
     }
@@ -53,12 +52,10 @@ export class DeskEditorComponent {
   
 
   isSelected(row: number, col: number): boolean {
-    // If the cell contains "-", consider it selected by default
     if (this.matrix[row][col] === '-') {
       return true;
     }
   
-    // Otherwise, check if it's selected based on the selectedPositions array
     return this.selectedPositions.some(p => p.row === row && p.col === col);
   }
   
@@ -66,11 +63,9 @@ export class DeskEditorComponent {
   
 
   addRowBelow(rowIndex: number) {
-    // Add the new row filled with dashes
     const newRow = Array(this.columnsInput).fill('-');
     this.matrix.splice(rowIndex + 1, 0, newRow);
   
-    // Automatically select this new row
     for (let colIndex = 0; colIndex < this.columnsInput; colIndex++) {
       this.selectedPositions.push({ row: rowIndex + 1, col: colIndex });
     }
@@ -80,7 +75,6 @@ export class DeskEditorComponent {
   
   
   removeRow(rowIndex: number) {
-    // Only remove the row if it is filled with "-"
     if (this.matrix[rowIndex].every(cell => cell === '-')) {
       this.matrix.splice(rowIndex, 1);
     }
@@ -89,26 +83,22 @@ export class DeskEditorComponent {
   }  
 
   addColumnLeft(colIndex: number) {
-    // Add a new column filled with dashes
     this.matrix.forEach(row => {
       row.splice(colIndex, 0, '-');
     });
   
-    // Automatically select the new column (if it's filled with dashes)
     this.matrix.forEach((row, rowIndex) => {
       if (row[colIndex] === '-') {
         this.selectedPositions.push({ row: rowIndex, col: colIndex });
       }
     });
   
-    // Update the column count
     this.columnsInput += 1;
     this.selectedPositions = [];
 
   }
 
   isDashRow(row: any[]): boolean {
-    // Check if the entire row contains only "-"
     return row.every(cell => cell === '-');
   }
   

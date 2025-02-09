@@ -15,8 +15,8 @@
     <h3>Ações</h3>
   </div>
 </div>
-<div class="d-flex-col" *ngFor="let group of groups">
-  <div class="d-center-row">
+<div class="d-flex-col" >
+  <div class="d-center-row" *ngFor="let group of groups">
     <div class="table-col d-center">
       <p>
         {{ group.id }}
@@ -46,7 +46,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="editGroup(group.id)">
           <mat-icon>edit</mat-icon>
           <span>Editar grupo</span>
         </button>

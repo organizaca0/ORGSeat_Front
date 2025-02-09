@@ -1,0 +1,18 @@
+<mat-form-field class="managers" appearance="fill">
+    <mat-label>Membros</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Administradores">
+      <mat-chip-row *ngFor="let member of members" (removed)="removeMember(member)">
+        {{ member }}
+        <button matChipRemove [attr.aria-label]="'Remover ' + member">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input
+        [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]=true
+        (matChipInputTokenEnd)="addMember($event)"
+        placeholder="Adicionar administrador..."
+      />
+    </mat-chip-grid>
+  </mat-form-field>
